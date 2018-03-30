@@ -1,0 +1,16 @@
+<% if users.any? %>
+  <ul class="media-list">
+    <% users.each do |user| %>
+      <div class="container">
+        <div class="media-body">
+          <div>
+            <li><%= link_to user.user_name, user_path(user) %></li>
+            <li><%= '@'+ user.user_code %></li>
+            <li><%= 'プロフィール:'+ user.profile%></li>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+  <%= paginate users %>
+<% end %>

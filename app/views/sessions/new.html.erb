@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="text-center"><h3>ログイン</h3></div>
+        <%= form_for(:session, url: login_path) do |f| %>
+
+          <div class="form-group">
+            <%= f.label :user_code, 'ユーザーID' %>
+            <%= f.text_field :user_code, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, 'パスワード' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="text-center">
+            <%= f.submit 'ログイン', class: 'btn btn-info' %>
+          </div>
+        <% end %>
+
+        <p>New user? <%= link_to '会員登録', signup_path %></p>
+      </div>
+    </div>
+  </div>
+</div>
