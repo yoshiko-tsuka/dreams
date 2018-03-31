@@ -16,9 +16,17 @@
     </div>
   </div>
   <ul class="nav nav-tabs nav-justified">
-    <li><a href="#">自分の作品</a></li>
+    <% if current_user == @user %>
+      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>自分の作品 <span class="badge"><%= @count_novels %>作品</span><% end %></li>
+    <% else %>
+      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %><%= @user.user_name %>さんの作品 <span class="badge"><%= @count_novels %>作品</span><% end %></li>
+    <% end %>
     <li><a href="#">購読作品</a></li>
     <li><a href="#">フォロー</a></li>
     <li><a href="#">フォロワー</a></li>
   </ul>
+  <% if current_user == @user %>
+    <%= link_to '新規作成', new_novel_path, class: 'btn btn-lg btn-default' %>
+  <% end %>
+  <%= render 'novels/novels', novels: @novels %>
 </div>

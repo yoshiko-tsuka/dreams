@@ -1,0 +1,29 @@
+<ul class="media-list">
+  <% novels.each do |novel| %>
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="text-center">
+          <h5>
+            <%= link_to novel.title, novel_path(novel.id) %>
+          </h5>
+          <div>
+            <li>作者:<%= link_to novel.user.user_name, user_path(novel.user) %></li>
+            <li>ページ数:XX</li>
+            <li>購読者数:XX</li>
+            <li>応援数:XX</li>
+          </div>
+          <div>
+            <% if current_user == novel.user %>
+            <% else %>
+              <%= link_to '購読', edit_user_path, class: 'btn btn-lg btn-default' %>
+              <%= link_to '応援', edit_user_path, class: 'btn btn-lg btn-default' %>
+            <% end %>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate novels %>
+</ul>

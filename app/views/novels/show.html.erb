@@ -1,0 +1,21 @@
+<div class="row">
+  <h3><%= @novel.title %></h3>
+  <div class="col-xs-4">
+    <li>作者名:<%= link_to  @novel.user.user_name + '@'+ @novel.user.user_code, user_path(@novel.user) %></li>
+    <li>投稿日:<%= @novel.created_at.strftime("%Y/%m/%d") %></li>
+    <li>タグ:</li>
+    <li>雰囲気:<%= @novel.atmosphere%></li>
+    <li>ページ数:XX</li>
+    <li>購読者数:XX</li>
+    <li>応援数:XX</li>
+  </div>
+  <div class="col-xs-8">
+    <h4>あらすじ</h4>
+    <div class="panel panel-default">
+      <div class="panel-body">設定されていません</div>
+    </div>
+  </div>
+  <div class="container">
+    第一章　XXXX
+  </div>
+</div>

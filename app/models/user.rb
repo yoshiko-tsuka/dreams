@@ -3,4 +3,6 @@ class User < ApplicationRecord
   validates :user_code, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :profile, presence: true,length: { maximum: 255 }
   has_secure_password
+  
+  has_many :novels
 end
