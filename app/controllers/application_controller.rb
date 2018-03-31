@@ -14,4 +14,5 @@ class ApplicationController < ActionController::Base
   def counts(user)
     @count_novels = user.novels.count
   end
+
 end

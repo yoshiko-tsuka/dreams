@@ -1,6 +1,6 @@
 class NovelsController < ApplicationController
-  before_action :require_user_logged_in, only:[:new, :create, :edit, :update, :delete]
-  before_action :correct_user, only: [:edit, :update, :delete]
+  before_action :require_user_logged_in, only:[:new, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
     @novel = Novel.find(params[:id])
@@ -16,24 +16,28 @@ class NovelsController < ApplicationController
       flash[:success] = '小説を投稿しました。'
       redirect_to @novel
     else
-      @novel = current_user.novels.order('created_at DESC').page(params[:page])
       flash.now[:danger] = '小説の投稿に失敗しました。'
       render :new
     end
   end
 
   def edit
-    @novel = Novel.find(params[:id])
   end
 
   def update
-    @novel = Novel.find(params[:id])
+    if @novel.update(novel_params)
+      flash[:success] = '変更しました。'
+      redirect_to @novel
+    else
+      flash.now[:danger] = '変更に失敗しました。'
+      render :edit
+    end
   end
 
   def destroy
     @novel.destroy
     flash[:success] = 'メッセージを削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to current_user
   end
   
   private
@@ -48,4 +52,5 @@ class NovelsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
 end
