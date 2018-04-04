@@ -2,10 +2,11 @@
   <div class="center jumbotron">
   <div class="text-center">
     <h1>* Dreams *</h1>
-    <h4>小説投稿サイトです</h4>
+    
     <% if logged_in? %>
-      <p>ログイン完了ユーザ: <%= current_user.user_name %></p>
+      <h4><%= current_user.user_name %>としてログイン中です</h4>
     <% else %>
+      <h4>小説投稿サイトです</h4>
       <%= link_to '会員登録', signup_path, class: 'btn btn-lg btn-info' %>
       <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-info' %>
     <% end %>

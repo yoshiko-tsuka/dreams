@@ -36,14 +36,14 @@ class NovelsController < ApplicationController
 
   def destroy
     @novel.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = '小説を削除しました。'
     redirect_to current_user
   end
   
   private
   
   def novel_params
-    params.require(:novel).permit(:title, :atmosphere)
+    params.require(:novel).permit(:title, :atmosphere, :resume)
   end
   
   def correct_user
@@ -52,5 +52,5 @@ class NovelsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-
+  
 end

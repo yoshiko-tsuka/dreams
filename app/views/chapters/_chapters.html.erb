@@ -1,0 +1,24 @@
+
+<% chapters.each_with_index do |chapter, index| %>
+  
+  <div class="col-xs-9">
+    <li>
+        <% if chapter.chapter_title == "" %>
+          <%= link_to "内容を読む", novel_chapter_path(chapter.novel, chapter) %>
+        <% else %>
+          第<%= index + 1 %>章 　 『<%= link_to chapter.chapter_title, novel_chapter_path(chapter.novel, chapter) %>』
+        <% end %>
+  </div>
+  <div class="col-xs-3">
+        <% if current_user == chapter.novel.user %>
+          <%= link_to '編集', edit_novel_chapter_path(chapter.novel, chapter), class: 'btn btn-default' %>
+          <%= link_to '削除', novel_chapter_path(chapter.novel, chapter), method: :delete, data: { confirm: "本当に削除してよろしいですか?" }, class: 'btn btn-danger' %>
+        <% else %>
+        <% end %>
+  </div>
+  </li>
+<% end %>
+<% if current_user == @novel.user %>
+  <%= link_to '次の章を新規作成', new_novel_chapter_path(@novel), class: 'btn btn-default btn-lg' %>
+<% end %>
+<%= paginate chapters %>

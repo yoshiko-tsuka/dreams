@@ -13,6 +13,11 @@
             <%= f.label :atmosphere, '雰囲気' %>
             <%= f.select :atmosphere,[["色々"],["ほんわか"],["シリアス"]] %>
           </div>
+          
+          <div class="form-group">
+            <%= f.label :resume, 'あらすじ(最大255文字)' %>
+            <%= f.text_area :resume, class: 'form-control', rows: 10, placeholder: 'ここに書くと薄く文字が入ります！'%>
+          </div>
 
           <div class="text-center">
             <%= f.submit '投稿', class: 'btn btn-info' %>
