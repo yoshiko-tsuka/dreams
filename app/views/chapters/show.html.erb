@@ -2,7 +2,7 @@
   <div class="col-xs-offset-3 col-xs-6">
     <div class="text_center">
       <h2><%= link_to @novel.title, novel_path(@novel.id) %></h2>
-      <h3>章『<%= @chapter.chapter_title %>』</h3>
+      <h3>『<%= @chapter.chapter_title %>』</h3>
       <div class="panel panel-default">
       <div class="panel-body">
         <%= simple_format(h @chapter.content) %>

@@ -1,0 +1,15 @@
+<% unless current_user == novel.user %>
+  <% if current_user.like?(novel) %>
+    <%= form_for(current_user.friendships.find_by(novel_id: novel.id), url: friendship_path, html: { method: :delete }) do |f| %>
+      <%= hidden_field_tag :novel_id, novel.id %>
+      <%= hidden_field_tag :type, 'Like' %>
+      <%= f.submit '応援', class: 'btn btn-danger' %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.friendships.build) do |f| %>
+      <%= hidden_field_tag :novel_id, novel.id %>
+      <%= hidden_field_tag :type, 'Like' %>
+      <%= f.submit '応援', class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+<% end %>

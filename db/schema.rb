@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403222126) do
+ActiveRecord::Schema.define(version: 20180406103000) do
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "chapter_title"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20180403222126) do
     t.datetime "updated_at",                                  null: false
     t.integer  "novel_id"
     t.index ["novel_id"], name: "index_chapters_on_novel_id", using: :btree
+  end
+
+  create_table "friendships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "novel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["novel_id"], name: "index_friendships_on_novel_id", using: :btree
+    t.index ["user_id", "novel_id", "type"], name: "index_friendships_on_user_id_and_novel_id_and_type", unique: true, using: :btree
+    t.index ["user_id"], name: "index_friendships_on_user_id", using: :btree
   end
 
   create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,6 +56,16 @@ ActiveRecord::Schema.define(version: 20180403222126) do
     t.index ["novel_id"], name: "index_ownerships_on_novel_id", using: :btree
   end
 
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id", using: :btree
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_relationships_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "user_name"
     t.string   "user_code"
@@ -55,7 +76,11 @@ ActiveRecord::Schema.define(version: 20180403222126) do
   end
 
   add_foreign_key "chapters", "novels"
+  add_foreign_key "friendships", "novels"
+  add_foreign_key "friendships", "users"
   add_foreign_key "novels", "users"
   add_foreign_key "ownerships", "chapters"
   add_foreign_key "ownerships", "novels"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end

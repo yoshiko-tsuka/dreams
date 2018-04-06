@@ -1,0 +1,2 @@
+class Subscribe < Friendship
+end

@@ -13,14 +13,14 @@
             <li>購読者数:XX</li>
             <li>応援数:XX</li>
           </div>
-          <div>
+        </div>
+        </div>
+        <div class="text-center">
             <% if current_user == novel.user %>
             <% else %>
-              <%= link_to '購読', edit_user_path, class: 'btn btn-lg btn-default' %>
-              <%= link_to '応援', edit_user_path, class: 'btn btn-lg btn-default' %>
+              <%= render 'friendships/subscribe_button', novel: novel %>
+              <%= render 'friendships/like_button', novel: novel %>
             <% end %>
-          </div>
-        </div>
         </div>
       </div>
     </div>

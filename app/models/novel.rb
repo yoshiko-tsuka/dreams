@@ -9,6 +9,11 @@ class Novel < ApplicationRecord
   validates :dream, inclusion: { in: [true, false] }
   
   has_many :chapters
+  has_many :friendships
   
+  has_many :likes
+  has_many :like_novels, through: :likes, class_name: 'User', source: :user
+  has_many :subscribes
+  has_many :subscribe_novels, through: :subscribes, class_name: 'User', source: :user
   
 end
