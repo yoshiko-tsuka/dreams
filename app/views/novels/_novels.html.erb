@@ -16,11 +16,13 @@
         </div>
         </div>
         <div class="text-center">
+          <% if logged_in? %>
             <% if current_user == novel.user %>
             <% else %>
               <%= render 'friendships/subscribe_button', novel: novel %>
               <%= render 'friendships/like_button', novel: novel %>
             <% end %>
+          <% end %>
         </div>
       </div>
     </div>

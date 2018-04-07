@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <% unless current_user == novel.user %>
   <% if current_user.like?(novel) %>
     <%= form_for(current_user.friendships.find_by(novel_id: novel.id), url: friendship_path, html: { method: :delete }) do |f| %>
@@ -12,4 +13,5 @@
       <%= f.submit '応援', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
+<% end %>
 <% end %>
