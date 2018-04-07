@@ -9,9 +9,9 @@
           </h5>
           <div>
             <li>作者:<%= link_to novel.user.user_name, user_path(novel.user) %></li>
-            <li>ページ数:XX</li>
-            <li>購読者数:XX</li>
-            <li>応援数:XX</li>
+            <li>ページ数:<%= novel.chapters.count %></li>
+            <li>購読者数:<%= novel.subscribe_users.count %></li>
+            <li>応援数:<%= novel.like_users.count %></li>
           </div>
         </div>
         </div>

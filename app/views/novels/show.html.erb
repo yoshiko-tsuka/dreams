@@ -11,8 +11,8 @@
     <li>タグ:</li>
     <li>雰囲気:<%= @novel.atmosphere%></li>
     <li>ページ数:<%= @novel.chapters.count %>ページ</li>
-    <li>購読者数:XX</li>
-    <li>応援数:XX</li>
+    <li>購読者数:<%= @novel.subscribe_users.count %></li>
+    <li>応援数:<%= @novel.like_users.count %></li>
   </div>
   <div class="col-xs-7">
     <h4>あらすじ</h4>

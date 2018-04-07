@@ -12,8 +12,8 @@ class Novel < ApplicationRecord
   has_many :friendships
   
   has_many :likes
-  has_many :like_novels, through: :likes, class_name: 'User', source: :user
+  has_many :like_users, through: :likes, class_name: 'User', source: :user
   has_many :subscribes
-  has_many :subscribe_novels, through: :subscribes, class_name: 'User', source: :user
+  has_many :subscribe_users, through: :subscribes, class_name: 'User', source: :user
   
 end
