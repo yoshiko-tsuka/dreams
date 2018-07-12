@@ -1,0 +1,6 @@
+$('p').each(function(){
+var SNtext = $(this).html();
+var SDname = "<%= @SDname %>";
+console.log(SDname);
+SNtext = SNtext.replace(/&lt;%=\s*姓\s*=%&gt;/g, SDname);
+$(this).html(SNtext);});

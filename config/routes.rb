@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  get 'dreamShow', to: 'dreamnames#new'
+  post 'dreamShow', to: 'dreamnames#create'
+  delete 'dreamout', to: 'dreamnames#destroy'
   
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create, :edit, :update]do
@@ -21,6 +24,8 @@ Rails.application.routes.draw do
   resources :novels, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :chapters
   end
+  
+  
  
   resources :relationships, only: [:create, :destroy]
   resources :friendships, only: [:create, :destroy]

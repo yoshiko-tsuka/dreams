@@ -3,6 +3,7 @@
     <div class="text_center">
       <h2><%= link_to @novel.title, novel_path(@novel.id) %></h2>
       <h3>『<%= @chapter.chapter_title %>』</h3>
+      
       <div class="panel panel-default">
       <div class="panel-body">
         <%= simple_format(h @chapter.content) %>
@@ -11,3 +12,21 @@
     </div>
   </div>
 </div>
+
+<!-- <%= javascript_include_tag "dreamShow.js" %> -->
+<% if dream_in? %>
+  <script>
+  $('p').each(function(){
+    var SNtext = $(this).html();
+    console.log("<%= session[:SDname] %>");
+    SNtext = SNtext.replace(/&lt;%=\s*姓\s*=%&gt;/g, "<%= session[:SDname] %>");
+    $(this).html(SNtext);
+    });
+  </script>
+<% else %>
+  <script>
+  $('body').addClass('modal-open');
+  $('<div class="modal-backdrop fade in"></div>').appendTo('body');
+  </script>
+  <%= render partial: 'dreamnames/new' %>
+<% end %>

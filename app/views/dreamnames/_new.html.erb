@@ -1,0 +1,32 @@
+    <!-- モーダルウィンドウの中身 -->
+<%= form_for(:dreamname,url:dreamShow_path, html:{id:'form_name'}, data: { remote: true }) do |f| %>
+<div class="modal fade in" id="newModal" style="display: block;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">あなたの名前登録</h4>
+        </div>
+        <div class="modal-body">
+            
+            <%= f.label :SDname, '姓' %>
+            <%= f.text_field :SDname %>
+            
+        </div>
+        <div class="modal-footer">
+            <%= f.submit '夢小説開始', class: "btn btm-info" %>
+        </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<script>
+$('#form_name').on('submit', function() {
+  $('body').removeClass('modal-open');
+  $('.modal-backdrop').remove();
+  $('#newModal').removeClass('modal fade in');
+  $('#newModal').addClass('modal fade');
+});
+
+</script>
