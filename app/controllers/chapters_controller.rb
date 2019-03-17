@@ -9,10 +9,10 @@ class ChaptersController < ApplicationController
   def create
     @chapter = @novel.chapters.build(chapter_params)
     if @chapter.save
-      flash[:success] = '小説を投稿しました。'
+      flash[:success] = 'you posted your novel!'
       redirect_to @novel
     else
-      flash.now[:danger] = '小説の投稿に失敗しました。'
+      flash.now[:danger] = 'you failed to post your novel!'
       render :new
     end
   end
@@ -24,10 +24,10 @@ class ChaptersController < ApplicationController
   def update
     @chapter = @novel.chapters.find_by(id: params[:id])
     if @chapter.update(chapter_params)
-      flash[:success] = '変更しました。'
+      flash[:success] = 'changed'
       redirect_to @novel
     else
-      flash.now[:danger] = '変更に失敗しました。'
+      flash.now[:danger] = 'you failed to change!'
       render :edit
     end
   end
@@ -35,7 +35,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter = @novel.chapters.find_by(id: params[:id])
     @chapter.destroy
-    flash[:success] = '章を削除しました。'
+    flash[:success] = 'you deleted the chapter!'
     redirect_to @novel
   end
 

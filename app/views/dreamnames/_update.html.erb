@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#updateModal">
-  Dream名前変更
+  Dream name change
 </button>
     <!-- モーダルウィンドウの中身 -->
 <%= form_for(:dreamname,url:dreamShow_path, html:{id:'form_name'}, data: { remote: true }) do |f| %>
@@ -9,16 +9,16 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Dream名前登録(夢小説に反映されます)</h4>
+            <h4 class="modal-title">resistration of your Dream name ( is reflected the dream novels)</h4>
         </div>
         <div class="modal-body">
             
-            <%= f.label :SDname, '姓' %>
+            <%= f.label :SDname, 'familyname' %>
             <%= f.text_field :SDname, value: session[:SDname] %>
             
         </div>
         <div class="modal-footer">
-            <%= f.submit '夢小説開始', class: "btn btm-info" %>
+            <%= f.submit 'start the dream novel', class: "btn btm-info" %>
         </div>
     </div>
   </div>

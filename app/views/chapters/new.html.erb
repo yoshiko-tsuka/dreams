@@ -6,17 +6,17 @@
         <%= form_for([@novel, @chapter]) do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
             <div class="form-group">
-              <%= f.label :chapter_title, '章タイトル(最大100文字)' %>
+              <%= f.label :chapter_title, 'chapter title(up to 100 letters)' %>
               <%= f.text_field :chapter_title, class: 'form-control' %>
             </div>
             
             <div class="form-group">
-              <%= f.label :content, '文章(必須)(最大1万文字)' %>
-              <%= f.text_area :content, class: 'form-control', rows: 10, placeholder: 'ここに書くと薄く文字が入ります！' %>
+              <%= f.label :content, 'sentences(necessary)(up to 10000 letters)' %>
+              <%= f.text_area :content, class: 'form-control', rows: 10, placeholder: 'write sentences here!' %>
             </div>
 
             <div class="text-center">
-              <%= f.submit '投稿', class: 'btn btn-info' %>
+              <%= f.submit 'post', class: 'btn btn-info' %>
             </div>
         <% end %>
       </div>

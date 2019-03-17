@@ -8,10 +8,10 @@
             <%= link_to novel.title, novel_path(novel.id) %>
           </h5>
           <div>
-            <li>作者:<%= link_to novel.user.user_name, user_path(novel.user) %></li>
-            <li>ページ数:<%= novel.chapters.count %></li>
-            <li>購読者数:<%= novel.subscribe_users.count %></li>
-            <li>応援数:<%= novel.like_users.count %></li>
+            <li>auther:<%= link_to novel.user.user_name, user_path(novel.user) %></li>
+            <li>number of pages</li>:<%= novel.chapters.count %></li>
+            <li>number of subscribers:<%= novel.subscribe_users.count %></li>
+            <li>number of likes:<%= novel.like_users.count %></li>
           </div>
         </div>
         </div>

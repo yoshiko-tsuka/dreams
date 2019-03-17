@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('p').each(function(){
     var SNtext = $(this).html();
     console.log(sdname);
-    SNtext = SNtext.replace(/&lt;%=\s*姓\s*=%&gt;/g, sdname);
+    SNtext = SNtext.replace(/&lt;%=\s*familyname\s*=%&gt;/g, sdname);
     $(this).html(SNtext);
     });
 });

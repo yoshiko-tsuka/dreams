@@ -19,7 +19,7 @@
   $('p').each(function(){
     var SNtext = $(this).html();
     console.log("<%= session[:SDname] %>");
-    SNtext = SNtext.replace(/&lt;%=\s*姓\s*=%&gt;/g, "<%= session[:SDname] %>");
+    SNtext = SNtext.replace(/&lt;%=\s*familyname\s*=%&gt;/g, "<%= session[:SDname] %>");
     $(this).html(SNtext);
     });
   </script>

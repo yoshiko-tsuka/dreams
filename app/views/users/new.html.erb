@@ -2,31 +2,31 @@
   <div class="col-xs-offset-3 col-xs-6">
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="text-center"><h3>会員登録</h3></div>
+        <div class="text-center"><h3>user resistration</h3></div>
         <%= form_for(@user) do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
-            <%= f.label :user_name, 'ユーザー名' %>
+            <%= f.label :user_name, 'user name' %>
             <%= f.text_field :user_name, class: 'form-control' %>
           </div>
 
           <div class="form-group">
-            <%= f.label :user_code, 'ユーザーID' %>
+            <%= f.label :user_code, 'user ID' %>
             <%= f.text_field :user_code, class: 'form-control' %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password, 'パスワード' %>
+            <%= f.label :password, 'password' %>
             <%= f.password_field :password, class: 'form-control' %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password_confirmation, 'パスワード（確認）' %>
+            <%= f.label :password_confirmation, 'password（comfirm）' %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
 
           <div class="text-center">
-            <%= f.submit '会員登録', class: 'btn btn-info' %>
+            <%= f.submit 'resister', class: 'btn btn-info' %>
           </div>
         <% end %>
       </div>

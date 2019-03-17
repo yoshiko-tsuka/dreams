@@ -4,14 +4,12 @@
     <h1>* Dreams *</h1>
     
     <% if logged_in? %>
-      <h4><%= current_user.user_name %>としてログイン中です</h4>
+      <h4>You're logging in as <%= current_user.user_name %></h4>
     <% else %>
-      <h4>小説投稿サイトです</h4>
-      <%= link_to '会員登録', signup_path, class: 'btn btn-lg btn-info' %>
-      <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-info' %>
+      <h4>This is a Website for posting novels</h4>
+      <%= link_to 'Resistraion', signup_path, class: 'btn btn-lg btn-info' %>
+      <%= link_to 'Login', login_path, class: 'btn btn-lg btn-info' %>
     <% end %>
   </div>
 </div>
 <% end %>
-
-<p>テスト</p>

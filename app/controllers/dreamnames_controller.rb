@@ -3,13 +3,13 @@ class DreamnamesController < ApplicationController
   def create
     second_name = params[:dreamname][:SDname]
     if regest(second_name)
-      flash[:success] = '登録完了'
+      flash[:success] = 'you completed registration!'
       respond_to do |format|
         format.html
         format.js
       end
     else
-      flash.now = '登録失敗'
+      flash.now = 'you failed regestration!'
     end
   end
   

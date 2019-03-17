@@ -13,10 +13,10 @@ class NovelsController < ApplicationController
   def create
     @novel = current_user.novels.build(novel_params)
     if @novel.save
-      flash[:success] = '小説を投稿しました。'
+      flash[:success] = 'You posted your novel!'
       redirect_to @novel
     else
-      flash.now[:danger] = '小説の投稿に失敗しました。'
+      flash.now[:danger] = 'You failed to post your novel!'
       render :new
     end
   end
@@ -26,17 +26,17 @@ class NovelsController < ApplicationController
 
   def update
     if @novel.update(novel_params)
-      flash[:success] = '変更しました。'
+      flash[:success] = 'You changed!'
       redirect_to @novel
     else
-      flash.now[:danger] = '変更に失敗しました。'
+      flash.now[:danger] = 'You failed to change!'
       render :edit
     end
   end
 
   def destroy
     @novel.destroy
-    flash[:success] = '小説を削除しました。'
+    flash[:success] = 'You deleted your novel!'
     redirect_to current_user
   end
   

@@ -7,29 +7,29 @@
     </div>
     <div class="col-xs-8">
       <%= render 'relationships/follow_button', user: @user %>
-      <h4>プロフィール</h4>
+      <h4>Profile</h4>
       <div class="panel panel-default">
         <div class="panel-body"><%= @user.profile %></div>
       </div>
     </div>
     <div class="col-xs-2">
       <% if current_user == @user %>
-        <%= link_to '編集', edit_user_path, class: 'btn btn-lg btn-default' %>
+        <%= link_to 'edit', edit_user_path, class: 'btn btn-lg btn-default' %>
       <% end %>
     </div>
   </div>
   <ul class="nav nav-tabs nav-justified">
     <% if logged_in? %>
       <% if current_user == @user %>
-      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>自分の作品 <span class="badge"><%= @count_novels %>作品</span><% end %></li>
+      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>your works <span class="badge"><%= @count_novels %>works</span><% end %></li>
       <% end %>
     <% end %>
     <% unless current_user == @user %>
-      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %><%= @user.user_name %>さんの作品 <span class="badge"><%= @count_novels %>作品</span><% end %></li>
+      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %><%= @user.user_name %>'s works <span class="badge"><%= @count_novels %>works</span><% end %></li>
     <% end %>
-    <li class="<%= 'active' if current_page?(subscribes_user_path(@user)) %>"><%= link_to subscribes_user_path(@user) do %>購読作品 <span class="badge"><%= @count_subscribes %></span><% end %></li>
-    <li class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>フォロー <span class="badge"><%= @count_followings %></span><% end %></li>
-    <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>フォロワー <span class="badge"><%= @count_followers %></span><% end %></li>
+    <li class="<%= 'active' if current_page?(subscribes_user_path(@user)) %>"><%= link_to subscribes_user_path(@user) do %>subscribings <span class="badge"><%= @count_subscribes %></span><% end %></li>
+    <li class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>followings <span class="badge"><%= @count_followings %></span><% end %></li>
+    <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>followers <span class="badge"><%= @count_followers %></span><% end %></li>
   </ul>
   <%= render 'users', users: @followings %>
 </div>

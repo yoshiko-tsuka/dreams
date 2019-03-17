@@ -13,15 +13,15 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">検索</a></li>
-        <li><a href="#">ランキング</a></li>
-        <li><%= link_to 'ユーザ一覧', users_path %></li>
+        <%# <li><a href="#">search</a></li> 
+        <li><a href="#">lanking</a></li> #%>
+        <li><%= link_to 'user list', users_path %></li>
         <% if logged_in? %>
-          <li><%= link_to 'アカウント', @current_user %></li>
-          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+          <li><%= link_to 'account', @current_user %></li>
+          <li><%= link_to 'logout', logout_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to '会員登録（無料）', signup_path %></li>
-          <li><%= link_to 'ログイン', login_path %></li>
+          <li><%= link_to 'resistration(free)', signup_path %></li>
+          <li><%= link_to 'login', login_path %></li>
         <% end %>
       </ul>
       </div>

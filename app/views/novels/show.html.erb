@@ -1,21 +1,21 @@
 <div class="row">
   <h3><%= @novel.title %>
   <% if current_user == @novel.user %>
-    <%= link_to '編集', edit_novel_path, class: 'btn btn-xs btn-default' %>
-    <%= link_to '削除', @novel, method: :delete, data: { confirm: "本当に削除してよろしいですか?" }, class: 'btn btn-danger btn-xs' %>
+    <%= link_to 'edit', edit_novel_path, class: 'btn btn-xs btn-default' %>
+    <%= link_to 'delete', @novel, method: :delete, data: { confirm: "Do you really want to delete?" }, class: 'btn btn-danger btn-xs' %>
   <% end %>
   </h3>
   <div class="col-xs-3">
-    <li>作者名:<%= link_to  @novel.user.user_name + '@'+ @novel.user.user_code, user_path(@novel.user) %></li>
-    <li>投稿日:<%= @novel.created_at.strftime("%Y/%m/%d") %></li>
-    <li>タグ:</li>
-    <li>雰囲気:<%= @novel.atmosphere%></li>
-    <li>ページ数:<%= @novel.chapters.count %>ページ</li>
-    <li>購読者数:<%= @novel.subscribe_users.count %></li>
-    <li>応援数:<%= @novel.like_users.count %></li>
+    <li>auther:<%= link_to  @novel.user.user_name + '@'+ @novel.user.user_code, user_path(@novel.user) %></li>
+    <li>created at:<%= @novel.created_at.strftime("%Y/%m/%d") %></li>
+    <li>tags:</li>
+    <li>atmosphere:<%= @novel.atmosphere%></li>
+    <li>number of pages:<%= @novel.chapters.count %></li>
+    <li>number of subscribers:<%= @novel.subscribe_users.count %></li>
+    <li>number of likes:<%= @novel.like_users.count %></li>
   </div>
   <div class="col-xs-7">
-    <h4>あらすじ</h4>
+    <h4>Summary</h4>
     <div class="panel panel-default">
       <div class="panel-body"><%= @novel.resume %></div>
     </div>

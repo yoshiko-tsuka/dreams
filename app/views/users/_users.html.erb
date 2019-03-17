@@ -7,7 +7,7 @@
           <div class="text-center">
           <li><%= link_to user.user_name, user_path(user) %></li>
           <li><%= '@'+ user.user_code %></li>
-          <li><%= 'プロフィール:'+ user.profile%></li>
+          <li><%= 'Profile:'+ user.profile%></li>
           <% if logged_in? %>
             <li><%= render 'relationships/follow_button', user: user %></li>
           <% end %>
